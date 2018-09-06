@@ -316,6 +316,40 @@ header.masthead .post-heading .meta a {
   }
 }
 
+.post > .post-header {
+  margin-bottom: 20px;
+}
+
+.post > .post-header > .post-title {
+  font-size: 36px;
+}
+
+.post > .post-header > .post-subtitle {
+  font-size: 24px;
+  color: #868e96;
+}
+
+.post > .post-header > .post-meta {
+  font-size: 18px;
+  font-style: italic;
+  text-align: right;
+  color: #868e96;
+}
+
+.post > .post-header > .post-meta > a {
+  text-decoration: none;
+  color: #212529;
+}
+
+.post > .post-header > .post-meta > a:focus, .post > .post-header > .post-meta > a:hover {
+  text-decoration: underline;
+  color: #0085A1;
+}
+
+.post > .post-header > .post-meta > p {
+  margin: 0;
+}
+
 .floating-label-form-group {
   font-size: 14px;
   position: relative;
