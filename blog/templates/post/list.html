@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="row">
+  <div class="col-lg-8 col-md-10 mx-auto">
+    {% for post in object_list %}
+    <div class="post-preview">
+      <a href="post.html">
+        <h2 class="post-title">
+          {{ post.title }}
+        </h2>
+        <h3 class="post-subtitle">
+          {{ post.subtitle }}
+        </h3>
+      </a>
+      <p class="post-meta">Posted by
+        <a href="#">{{post.user}}</a>
+        on {{post.ctime}}</p>
+    </div>
+    <hr>
+    {% empty %}
+    <div class="post-preview">
+       <p> 등록된 게시물이 아직 없습니다. </p>
+    </div>
+    {% endfor %}
+    <!-- Pager -->
+    {% if object_list %}
+    <div class="clearfix">
+      <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
