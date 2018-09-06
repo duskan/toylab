@@ -14,3 +14,9 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'toylab.settings')
 
 application = get_wsgi_application()
+
+# try:
+    # from whitenoise.django import DjangoWhiteNoise
+    # application = DjangoWhiteNoise(application)
+# except ImportError:
+    # pass

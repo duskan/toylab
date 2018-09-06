@@ -5,7 +5,7 @@
   <div class="col-lg-8 col-md-10 mx-auto">
     {% for post in object_list %}
     <div class="post-preview">
-      <a href="post.html">
+      <a href="{% url 'post-detail' post.pk %}">
         <h2 class="post-title">
           {{ post.title }}
         </h2>
