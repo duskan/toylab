@@ -40,3 +40,34 @@
     }
   }
 }
+
+.post{
+  > .post-header{
+    margin-bottom: 20px;
+    > .post-title{
+      font-size: 36px;
+    }
+    > .post-subtitle{
+      font-size: 24px;
+      color: $gray-600;
+    }
+    > .post-meta {
+      font-size: 18px;
+      font-style: italic;
+      text-align: right;
+      color: $gray-600;
+      > a {
+        text-decoration: none;
+        color: $gray-900;
+        &:focus,
+        &:hover {
+          text-decoration: underline;
+          color: $primary;
+        }
+      }
+      > p {
+        margin: 0;
+      }
+    }
+  }
+}

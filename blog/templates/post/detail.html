@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="post col-lg-8 col-md-10 mx-auto">
+                <div class="post-header">
+                    <div class="post-title">
+                        {{object.title|title}}
+                    </div>
+                    <div class="post-subtitle">
+                        {{object.subtitle|title}}
+                    </div>
+                    <div class="post-meta">
+                    <p> Posted by <a href="#">{{post.user}}</a> </p>
+                    <p>{{post.ctime}}</p>
+                    <hr>
+                </div>
+                <div class="post-contents">
+                  {{object.contents}}
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+{% endblock%}
