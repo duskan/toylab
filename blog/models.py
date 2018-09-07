@@ -8,7 +8,7 @@ class Signable(models.Model):
         User, verbose_name="User",
         null=True,
         on_delete=models.SET_NULL,
-        default=1, # Error 날 수 있음. 하지만 개인 블로그에서 쓸꺼라 일단 내비두자
+        default=1,  # Error 날 수 있음. 하지만 개인 블로그에서 쓸꺼라 일단 내비두자
     )
     ctime = models.DateTimeField(
         "Created datetime",
@@ -21,6 +21,7 @@ class Signable(models.Model):
 
     class Meta:
         abstract = True
+
 
 class Post(Signable):
     title = models.CharField(

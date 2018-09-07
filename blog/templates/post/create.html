@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="row">
+  <div class="col-lg-8 col-md-10 mx-auto">
+    <form id="form-register-individual" data-toggle="validator" role="form" method="post">
+          {% csrf_token %}
+          <p class="text-right"><span style="color:red;">*</span></p>
+          <table class="table-form">
+              <caption>"작성 폼"</caption>
+              <tbody>
+                  <tr>
+                      <th scope="row" style="width:18%;"><label class="control-label">{{ form.title.label }}</label></th>
+                      <td style="width:32%;">{{ form.title }}</td>
+                      <th scope="row" style="width:18%;">
+                        <label class="control-label">{{ form.subtitle.label }}</label>
+                      </th>
+                      <td style="width:32%;">
+                        {{ form.subtitle }}
+                      </td>
+                  </tr>
+                  <tr>
+                      <th scope="row"><label class="control-label">{{ form.contents.label }}</label></th>
+                      <td colspan="3" >
+                        {{ form.contents }}
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          <div class="btn-container bottom right">
+              <button type="button" class="btn btn-warning">취소</button>
+              <button type="submit" class="btn btn-primary">저장</button>
+          </div>
+  </form>
+  </div>
+</div>
+{% endblock %}
