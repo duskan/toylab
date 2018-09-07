@@ -39,7 +39,7 @@ class Post(Signable):
     )
     contents = models.TextField(
         '컨텐츠',
-        help_text='Species name in English',
+        help_text='html contents',
         null=False,
         blank=True,
     )

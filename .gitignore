@@ -5,3 +5,7 @@
 
 # django 
 db.sqlite3
+
+# static files
+node_modules
+package-lock.json
