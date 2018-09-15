@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<article>
+    <div class="container">
+      <form id="action_form" method="post" role="form" enctype="mutipart/form-data">
+
+        <div class="col-lg-8 col-md-10 mx-auto ">
+          <div>
+            {% csrf_token %}
+            {% if form.erros %}
+            {% for field, error_messages in form.errors.items %}
+            {% for error_message in error_messages %}
+            <p class="text-warning"> {{ error_message}} </p>
+            {% endfor%}
+            {% endfor %}
+            {% endif %}
+          </div>
+          <div class="post">
+            <div class='form-group row'>
+              <label class='col-sm-2 col-form-label' for='title'> 제목 </label>
+              {{form.title}}
+            </div>
+            <div class='form-group row'>
+              <label class='col-sm-2 col-form-label' for='subtitle'> 소제목 </label>
+              {{form.subtitle}}
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-2"> 비밀글 </div>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="id_is_secret" name='is_secret'>
+                  <label class="form-check-label" for="is_secret"> 비밀글 </label>
+                </div>
+              </div>
+            </div>
+            <div class='form-group'>
+              <label class='col-form-label' for='contents'> 내용 </label>
+              {{form.contents}}
+              <!-- <textarea class="form-control" id="id_contents" rows="20" name='contents'></textarea> -->
+            </div>
+
+            <div class="clearfix">
+              <button class="btn btn-primary " type="submit"> 저장 &rarr;</button>
+              <a class="btn btn-secondary " href="{% url 'post' %}"> cancle </a>
+            </div>
+          </div>
+        </div>
+    </div>
+</article>
+
+{% endblock%}

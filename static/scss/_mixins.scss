@@ -66,3 +66,6 @@
 @mixin sans-serif-font() {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+@mixin noto-sans-font() {
+  font-family: 'Noto Sans Korean', Arial, sans-serif;
+}

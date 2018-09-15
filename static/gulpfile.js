@@ -47,8 +47,15 @@ gulp.task('vendor', function() {
   // Fonts
   gulp.src([
       './bower_components/noto-sans-korean-webfont/fonts/*',
+
     ])
-    .pipe(gulp.dest('./dist/vendor/noto-sans-korean-webfont'))
+    .pipe(gulp.dest('./dist/vendor/noto-sans-korean-webfont/fonts'))
+  
+  gulp.src([
+      './bower_components/noto-sans-korean-webfont/css/*',
+    ])
+    .pipe(gulp.dest('./dist/vendor/noto-sans-korean-webfont/css'))
+
 
   // Images
   gulp.src([
@@ -64,7 +71,7 @@ gulp.task('css:compile', function() {
     .pipe(sass.sync({
       outputStyle: 'expanded'
     }).on('error', sass.logError))
-    .pipe(gulp.dest('./dist/css'))
+    .pipe(gulp.dest('./css'))
 });
 
 // Minify CSS
