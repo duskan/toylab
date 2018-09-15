@@ -25,7 +25,7 @@ gulp.task('vendor', function() {
       '!./node_modules/bootstrap/dist/css/bootstrap-grid*',
       '!./node_modules/bootstrap/dist/css/bootstrap-reboot*'
     ])
-    .pipe(gulp.dest('./vendor/bootstrap'))
+    .pipe(gulp.dest('./dist/vendor/bootstrap'))
 
   // Font Awesome
   gulp.src([
@@ -33,16 +33,28 @@ gulp.task('vendor', function() {
       '!./node_modules/font-awesome/{less,less/*}',
       '!./node_modules/font-awesome/{scss,scss/*}',
       '!./node_modules/font-awesome/.*',
-      '!./node_modules/font-awesome/*.{txt,json,md}'
+      '!./node_modules/font-awesome/*.{txt,json,md}',
     ])
-    .pipe(gulp.dest('./vendor/font-awesome'))
+    .pipe(gulp.dest('./dist/vendor/font-awesome'))
 
   // jQuery
   gulp.src([
       './node_modules/jquery/dist/*',
       '!./node_modules/jquery/dist/core.js'
     ])
-    .pipe(gulp.dest('./vendor/jquery'))
+    .pipe(gulp.dest('./dist/vendor/jquery'))
+
+  // Fonts
+  gulp.src([
+      './bower_components/noto-sans-korean-webfont/fonts/*',
+    ])
+    .pipe(gulp.dest('./dist/vendor/noto-sans-korean-webfont'))
+
+  // Images
+  gulp.src([
+    './img/*.*'
+  ])
+  .pipe(gulp.dest('./dist/images/'))
 
 });
 
@@ -52,7 +64,7 @@ gulp.task('css:compile', function() {
     .pipe(sass.sync({
       outputStyle: 'expanded'
     }).on('error', sass.logError))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./dist/css'))
 });
 
 // Minify CSS
@@ -65,7 +77,7 @@ gulp.task('css:minify', ['css:compile'], function() {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./dist/css'))
     .pipe(browserSync.stream());
 });
 
@@ -82,7 +94,7 @@ gulp.task('js:minify', function() {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./js'))
+    .pipe(gulp.dest('./dist/js'))
     .pipe(browserSync.stream());
 });
 

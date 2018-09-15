@@ -1,0 +1,28 @@
+{
+  "name": "toylab",
+  "description": "my blog~~",
+  "main": "",
+  "authors": [
+    "duskan"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "css",
+    "sass",
+    "html",
+    "responsive",
+    "theme",
+    "template"
+  ],
+  "homepage": "https://github.com/duskan/toylab",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "noto-sans-korean-webfont": "^1.0.0"
+  }
+}
