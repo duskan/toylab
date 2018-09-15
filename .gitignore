@@ -5,6 +5,7 @@
 
 # django 
 db.sqlite3
+collect_static
 
 # static files
 node_modules
