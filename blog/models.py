@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from martor.models import MartorField
+
 
 # Create your models here.
 class Signable(models.Model):
@@ -37,12 +39,18 @@ class Post(Signable):
         null=True,
         blank=True,
     )
-    contents = models.TextField(
+    contents = MartorField(
         '컨텐츠',
         help_text='html contents',
         null=False,
         blank=True,
     )
+    # contents = models.TextField(
+    #     '컨텐츠',
+    #     help_text='html contents',
+    #     null=False,
+    #     blank=True,
+    # )
     secret = models.BooleanField(
         default=False,
     )

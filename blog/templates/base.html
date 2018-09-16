@@ -26,6 +26,15 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'dist/css/clean-blog.min.css' %}" rel="stylesheet">
 
+    <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+    <link href="{% static 'plugins/css/semantic.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+    <link href="{% static 'plugins/css/resizable.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+    <link href="{% static 'martor/css/martor.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+    <style>
+       .main-container {margin-top: 7em}
+     </style>
+
+     <script type="text/javascript" src="{% static 'plugins/js/jquery.min.js' %}"></script>
 
     {% block extra_header %}
     {% endblock %}
@@ -103,6 +112,21 @@
 
     <!-- Custom scripts for this template -->
     <script src="{% static 'dist/js/clean-blog.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/ace.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/semantic.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/mode-markdown.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/ext-language_tools.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/theme-github.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/resizable.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/emojis.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'martor/js/martor.min.js' %}"></script>
+    <script>
+        $('pre').each(function(i, block){
+            hljs.highlightBlock(block);
+        });
+        $('.ui.dropdown').dropdown();
+    </script>
     {% block extra_javascript %}
     {% endblock %}
   </body>

@@ -1,11 +1,13 @@
 from django import forms
+from martor.fields import MartorFormField
 
 from blog.models import Post
 
 class PostCreateForm(forms.ModelForm):
+    contents = MartorFormField()
     class Meta:
         model = Post
-        fields = ['title', 'subtitle', 'secret', 'contents']
+        fields = ['title', 'subtitle', 'secret']
         widgets = {
             'title': forms.TextInput(
                 attrs={
@@ -19,19 +21,19 @@ class PostCreateForm(forms.ModelForm):
                     'class': 'form-control col-sm-10'
                 }
             ),
-            'contents': forms.Textarea(
-                attrs={
-                    'title': 'contents',
-                    'class': 'form-control'
-                }
-            )
+            # 'contents': forms.Textarea(
+            #     attrs={
+            #         'title': 'contents',
+            #         'class': 'form-control'
+            #     }
+            # )
         }
 
-    # def save(self, user, commit=True):
-    #     post = super(PostCreateForm, self).save(commit=False)
-    #     title = self.cleaned_data.get('title')
-    #     if title:
-    #         post.title = title
+    def save(self, commit=True):
+        post = super(PostCreateForm, self).save(commit=False)
+        contents = self.cleaned_data.get('contents')
+        if contents:
+            post.contents = contents
     #     subtitle = self.cleaned_data.get('subtitle')
     #     if subtitle:
     #         post.subtitle = subtitle
@@ -39,5 +41,5 @@ class PostCreateForm(forms.ModelForm):
     #     # if secret:
     #     #     post.secret = secret
     #
-    #     post.save()
-    #     return post
+        post.save()
+        return post

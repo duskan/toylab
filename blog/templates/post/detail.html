@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load martortags %}
 {% block contents %}
 
 <article>
@@ -18,8 +19,8 @@
                     <p>{{post.ctime}}</p>
                     <hr>
                 </div>
-                <div class="post-contents">
-                  {{object.contents|safe}}
+                <div class="post-contents ui segment martor-preview">
+                  {{object.contents|safe_markdown}}
                 </div>
             </div>
         </div>
