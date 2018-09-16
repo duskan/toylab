@@ -4,10 +4,10 @@ from martor.fields import MartorFormField
 from blog.models import Post
 
 class PostCreateForm(forms.ModelForm):
-    contents = MartorFormField()
+    # contents = MartorFormField()
     class Meta:
         model = Post
-        fields = ['title', 'subtitle', 'secret']
+        fields = ['title', 'subtitle', 'secret', 'contents']
         widgets = {
             'title': forms.TextInput(
                 attrs={
@@ -21,12 +21,12 @@ class PostCreateForm(forms.ModelForm):
                     'class': 'form-control col-sm-10'
                 }
             ),
-            # 'contents': forms.Textarea(
-            #     attrs={
-            #         'title': 'contents',
-            #         'class': 'form-control'
-            #     }
-            # )
+            'contents': forms.Textarea(
+                attrs={
+                    'title': 'contents',
+                    'class': 'form-control'
+                }
+            )
         }
 
     def save(self, commit=True):

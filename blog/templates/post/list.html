@@ -3,6 +3,11 @@
 {% block contents %}
 <div class="row">
   <div class="col-lg-8 col-md-10 mx-auto">
+    {% if request.user.is_superuser %}
+    <div class="clearfix">
+      <a class="btn btn-primary float-right" href="{% url 'post-create' %}"> Create Post &rarr;</a>
+    </div>
+    {% endif %}
     {% for post in object_list %}
     <div class="post-preview">
       <a href="{% url 'post-detail' post.pk %}">

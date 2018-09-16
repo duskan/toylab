@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from django.views.generic import CreateView
+from django.views.generic import UpdateView
 from django.urls import reverse_lazy
 
 from blog.models import Post
@@ -29,6 +30,13 @@ class PostDetailView(DetailView):
 
 
 class PostCreateView(CreateView):
+    template_name = "post/create.html"
+    model = Post
+    form_class = PostCreateForm
+    success_url = reverse_lazy('post')
+
+
+class PostUpdateView(UpdateView):
     template_name = "post/create.html"
     model = Post
     form_class = PostCreateForm

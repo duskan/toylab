@@ -27,6 +27,11 @@
             <div class="post col-lg-10 col-md-10 mx-auto ui segment martor-preview" >
                   {{object.contents|safe_markdown}}
             </div>
+            {% if request.user.is_superuser %}
+            <div class="post col-lg-10 col-md-10 mx-auto">
+               <a class="btn btn-primary" href="{% url 'post-update' object.pk %}"> 수정하기 </a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </article>
