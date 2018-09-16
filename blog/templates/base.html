@@ -46,6 +46,7 @@
     {% include 'nav_top.html' %}
 
     <!-- Page Header -->
+    {% block page_header %}
     <header class="masthead" style="background-image: url('{% static 'img/home-bg.jpg' %}')">
       <div class="overlay"></div>
       <div class="container">
@@ -54,13 +55,13 @@
             <div class="site-heading">
               <h1>Duskan`s Blog</h1>
               <span class="subheading">Notes for Development</span>
-              <span class="subheading">(현재 개발 진행중입니다)</span>
             </div>
           </div>
         </div>
       </div>
     </header>
-
+    {% endblock %}
+    
     <!-- Main Content -->
     <div class="container">
       {% block contents %}
@@ -76,7 +77,7 @@
           <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
               <li class="list-inline-item">
-                <a href="#">
+                <a href="{% url 'not_implements' %}">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -84,7 +85,7 @@
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
+                <a href="{% url 'not_implements' %}">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -92,7 +93,7 @@
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
+                <a href="{% url 'not_implements' %}">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>

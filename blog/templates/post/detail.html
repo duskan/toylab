@@ -1,27 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load martortags %}
+
+{% block page_header %}
+<header class="masthead" style="background-image: url('{% static 'img/home-bg.jpg' %}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h2>{{object.title|title}}</h2>
+          <span class="subheading">{{object.subtitle|default:""}}</span>
+          <span class="post-meta"> <p> Posted by <a href="#">{{post.user}}</a> {{post.ctime}} </p></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+{% endblock %}
+
 {% block contents %}
 
 <article>
     <div class="container">
         <div class="row">
-            <div class="post col-lg-8 col-md-10 mx-auto">
-                <div class="post-header">
-                    <div class="post-title">
-                        {{object.title|title}}
-                    </div>
-                    <div class="post-subtitle">
-                        {{object.subtitle|title}}
-                    </div>
-                    <div class="post-meta">
-                    <p> Posted by <a href="#">{{post.user}}</a> </p>
-                    <p>{{post.ctime}}</p>
-                    <hr>
-                </div>
-                <div class="post-contents ui segment martor-preview">
+            <div class="post col-lg-10 col-md-10 mx-auto ui segment martor-preview" >
                   {{object.contents|safe_markdown}}
-                </div>
             </div>
         </div>
     </div>

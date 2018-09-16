@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load martortags %}
 {% block contents %}
 
 <article>
     <div class="container">
       <form id="action_form" method="post" role="form" enctype="mutipart/form-data">
 
-        <div class="col-lg-8 col-md-10 mx-auto ">
+        <div class="col-lg-10 col-md-10 mx-auto ">
           <div>
             {% csrf_token %}
             {% if form.erros %}

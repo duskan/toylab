@@ -14,6 +14,10 @@ def index(request):
     return HttpResponseRedirect('post')
 
 
+class NotImplementsView(TemplateView):
+    template_name = "not_implements.html"
+
+
 class PostListView(ListView):
     template_name = "post/list.html"
     model = Post
