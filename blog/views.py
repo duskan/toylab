@@ -22,6 +22,10 @@ class NotImplementsView(TemplateView):
 class PostListView(ListView):
     template_name = "post/list.html"
     model = Post
+    ordering = ['-ctime']
+
+    # def get_queryset(self, *args, **kwargs):
+    #     super(PostListView, self).get(get_queryset)
 
 
 class PostDetailView(DetailView):
