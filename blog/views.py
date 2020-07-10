@@ -8,11 +8,19 @@ from django.urls import reverse_lazy
 
 from blog.models import Post
 from blog.forms import PostCreateForm
+from django.http.response import JsonResponse
 
 
 # Create your views here.
 def index(request):
     return HttpResponseRedirect('post')
+
+
+def get_webhook(request):
+    if request.method == "POST":
+        print("request_data", request.POST)
+
+    return JsonResponse({'status': 'success'})
 
 
 class NotImplementsView(TemplateView):
