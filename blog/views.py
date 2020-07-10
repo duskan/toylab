@@ -19,8 +19,11 @@ def index(request):
 
 @csrf_exempt
 def get_webhook(request):
+    print("resquest >>>")
     if request.method == "POST":
-        print("request_data", request.POST)
+        print("\trequest_data[POST]", request.POST)
+        print("\trequest_data[GET]", request.GET)
+    print(r"\tresquest >>", request.__dict__)
 
     return JsonResponse({'status': 'success'})
 
