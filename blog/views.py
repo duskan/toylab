@@ -18,7 +18,7 @@ from rest_framework.decorators import api_view, schema
 def index(request):
     return HttpResponseRedirect('post')
 
-@api_view(['GET'])
+@api_view(['POST'])
 @csrf_exempt
 def get_webhook(request):
     print("resquest >>>")
