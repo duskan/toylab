@@ -11,12 +11,14 @@ from blog.forms import PostCreateForm
 from django.http.response import JsonResponse
 
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view, schema
 
 
 # Create your views here.
 def index(request):
     return HttpResponseRedirect('post')
 
+@api_view(['GET'])
 @csrf_exempt
 def get_webhook(request):
     print("resquest >>>")
