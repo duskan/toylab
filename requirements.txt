@@ -3,3 +3,4 @@ django-extensions==2.1.2
 psycopg2==2.7.5
 martor==1.3.2
 jupyter
+djangorestframework==3.11.0
