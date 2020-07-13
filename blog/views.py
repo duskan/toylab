@@ -24,9 +24,6 @@ def get_webhook(request):
     print("resquest >>>")
     if request.method == "POST":
         print("\trequest_data[data]", request.data)
-        print("\trequest_data[POST]", request.POST)
-        print("\trequest_data[GET]", request.GET)
-    print(r"\tresquest >>", request.__dict__)
 
     return JsonResponse({'status': 'success'})
 
