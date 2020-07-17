@@ -21,9 +21,8 @@ def index(request):
 @api_view(['POST'])
 @csrf_exempt
 def get_webhook(request):
-    print("resquest >>>")
-    if request.method == "POST":
-        print("\trequest_data[data]", request.data)
+    print(f"resquest ({type(request.data)})>>>")
+    print(request.data)
 
     return JsonResponse({'status': 'success'})
 
