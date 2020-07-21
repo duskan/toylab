@@ -31,6 +31,7 @@ def get_webhook(request):
     try:
         token = request.META['HTTP_AUTHORIZATION'].split()[1]
     except:
+        print("error >> MEATA:", request.META)
         return JsonResponse({'status': 'fail'})
     print("----------------------------------------------------------")
     print(f"resquest ({type(request.data)})>>>")
