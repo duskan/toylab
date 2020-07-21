@@ -13,6 +13,8 @@ from django.http.response import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, schema
 
+import jwt
+
 
 # Create your views here.
 def index(request):
@@ -21,8 +23,20 @@ def index(request):
 @api_view(['POST'])
 @csrf_exempt
 def get_webhook(request):
+    ALGORITHM = "HS256"
+    try:
+        from blog.secret import a
+    except:
+        return JsonResponse({'status': 'success'})
+    try:
+        token = request.META['HTTP_AUTHORIZATION'].split()[1]
+    except:
+        return JsonResponse({'status': 'fail'})
+    print("----------------------------------------------------------")
     print(f"resquest ({type(request.data)})>>>")
+    print("JWT result >>", jwt.decode(token, SECRET_KEY, ALGORITHM))
     print(request.data)
+    print("----------------------------------------------------------")
 
     return JsonResponse({'status': 'success'})
 
