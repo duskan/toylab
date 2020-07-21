@@ -27,6 +27,7 @@ def get_webhook(request):
     try:
         from blog.secret import a
     except:
+        print("There is no secret file")
         return JsonResponse({'status': 'success'})
     try:
         token = request.META['HTTP_AUTHORIZATION'].split()[1]
