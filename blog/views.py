@@ -25,7 +25,7 @@ def index(request):
 def get_webhook(request):
     ALGORITHM = "HS256"
     try:
-        from blog.secret import a
+        from blog.secret import SECRET_KEY
     except:
         print("There is no secret file")
         return JsonResponse({'status': 'success'})
