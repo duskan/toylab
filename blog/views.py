@@ -14,6 +14,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, schema
 
 import jwt
+import json
+import hashlib
 
 
 # Create your views here.
@@ -37,6 +39,9 @@ def get_webhook(request):
     print("----------------------------------------------------------")
     print(f"resquest ({type(request.data)})>>>")
     print("JWT result >>", jwt.decode(token, SECRET_KEY, ALGORITHM))
+    decoded = jwt.decode(token, SECRET_KEY, ALGORITHM)
+    print("\t", hashlib.sha256(json.dump(request.data)))
+    print("\t", decoded["payload_hash"])
     print(request.data)
     print("----------------------------------------------------------")
 
