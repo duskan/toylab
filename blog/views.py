@@ -40,8 +40,9 @@ def get_webhook(request):
     print(f"resquest ({type(request.data)})>>>")
     print("JWT result >>", jwt.decode(token, SECRET_KEY, ALGORITHM))
     decoded = jwt.decode(token, SECRET_KEY, ALGORITHM)
-    print("\t", json.dumps(request.data).encode('utf-8').hexdigest())
-    print("\t", hashlib.sha256(decoded["payload_hash"]))
+    print("\t JSON:", json.dumps(request.data))
+    print("\t", hashlib.sha256(json.dumps(request.data).encode('utf-8')).hexdigest())
+    print("\t", decoded["payload_hash"])
     print(request.data)
     print("----------------------------------------------------------")
 
